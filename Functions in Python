@@ -1,0 +1,290 @@
+TASK #1
+#exponential function
+def my_exp(x,n):
+    s=0 #first number of row
+    q=1 #first number of addition
+    #cycle operator
+      for k in range (n+1):
+          s=s+q
+          q**=x/(k+1)
+      #function result    
+      return s
+    x=1 #argument for exponent
+    #cycle operator for calling exponential function many times
+    for n in range (11):
+    print("n=", n, "->",my_exp(x,n))
+
+
+TASK #2
+# exponential function in another way
+def my_exp(x, n):
+    s = 0  # first number of row
+    q = 1  # first number of addition
+
+    # cycle operator
+    for k in range(n + 1):
+        s += q
+        q *= x / (k + 1)
+    return s
+x = 1
+for n in range(11):
+    print("n=", n, "->", my_exp(x, n))'''
+
+
+TASK #4
+#first function with 1 argument
+#in argument meaning by default
+def print_txt(txt="Argument by default"):
+    print(txt)
+#second function with 2 arguments. Secont argument has meamimg
+def show_arg(a,b="Second argument does not has meaning"):
+    print (a,b)
+#third function with 2 arguments.Arguments have meanings
+def my_func(x="first argument is x.",y="second argument is y",):
+    print (x,y)
+#check work of first finction
+# give argument
+print_txt("here it is")
+print_txt()
+#check work of second function
+#2 arguments added
+show_arg("first argument.", "secjnd argument.")
+#add 1 argument
+show_arg("Hello")
+#check working of 3 function
+#without args
+my_func()
+#give 1 arg
+my_func("one of args")
+#give second
+my_func(y="y= one of args")'''
+
+
+TASK #5
+def get_sum(*nums):
+    s=0
+    for a in nums:
+        s=s+a
+    return s
+print(get_sum(-2,4))'''
+
+TASK #6
+def my_func(txt):
+    print ("The Function", txt)
+my_func("рррр")
+new_func=my_func
+new_func("call from new_func")
+
+
+
+TASK #7
+#Description of function for differential equation
+def solve_eqn(f, x0, n):
+    #first approximation for root
+    x=x0
+    #cycle for calculatiob for approximations
+    for k in range(1,n+1):
+        x=f(x)#formula for iteration
+    #solution    
+    return x
+ #functon for 1 equation   
+def eqn_1(x):
+    return(x**2+5)/6
+  #functon for 2 equation     
+def eqn_2(x):
+    return (6 * x - 5) ** 0.5
+x=solve_eqn(eqn_1, 0,10)
+print(x)
+x2=x=solve_eqn(eqn_2,4,10)
+print(x2)
+
+
+TASK #8
+#desigion for didfferetial equetion
+import math
+#function for solving differetial equestion
+def solve_deqn(f,x0,y0,x):
+    #number of intervals
+    n=1000
+    #the distance between key points
+    dx=x-x0/n
+    # begin point
+    x=x0
+    #first meaning of function
+    y=y0
+    #cycle operator
+    for k in range (1, n+1):
+    #meaning of function in nodal point
+        y=y0+dx*f(x,y)
+         #next nodal point
+        x=x+dx
+    return y
+
+#function for differential equetion
+def diff_eqn(x,y):
+    #function result
+     return 2*x-y
+
+#function for exact solution of equation
+def y(x):
+    return 2 * (x - 1) + 5 * math.exp(-x)
+h=0.5
+for k in range(0,6):
+    x=k*h
+    print ("soluten in number is")
+    print ("x=: " , x, "-> y(x)=", solve_deqn(diff_eqn,0,3,x))
+    print ("Exact solution:")
+    print (x,  y(x))
+    
+    
+TASK #9    
+Fibanachi function
+#Indescription we use recursion
+def Fib(n):
+#first and second numbers in subsequence are
+    if n==1 or n==2:
+       return 1
+       #numbers in subsequence are sum  of two previous
+    else:
+        return Fib(n-1) + Fib(n-2)
+print ("The numbers Fibanacchi are:")
+for i in range (1,16):
+    print (Fib(i))
+
+
+TASK #10
+#function for differential equation
+def solve(f,x0, n):
+#first iteration
+    if n==0:
+        return x0
+        #recursive relation
+    else:
+        return solve(f,f(x0), n-1)
+def eqn(x):
+    return(x**2+5)/6
+x=solve(eqn, 0,5)
+print (x)
+
+
+
+TASK #11
+#Lambda functions
+Function for displaying the value  other functions
+def find_value(f,x):
+    print ("x= ", x,  "f(x)=", f(x))
+    #for variable assigned the meaning of lambda-function
+my_func = lambda x:1/(1+x**2)
+#cheking result
+find_value(my_func, 2.0)
+#argument of function is lambda-function
+find_value(lambda x:x*(1-x), 0.5)
+#use lambda-function in expression
+z=1+(lambda x,y:x*y-x**2) (2,3)**2
+print(z)
+
+
+TASK #12
+#function as a result of function
+def my_pow (n):
+    return lambda x:x**n
+for n in range(1,4): #out cycle
+    for x in range (1,11):#inside cycle
+        print (my_pow(n)  (x), end= "  " )
+    print()#go for new row
+
+TASK #13
+#global variable
+x=100
+#function
+def test_vars():
+    #local variable
+    x="local variable"
+    #checkinf in fuction bode
+    print ("In function body x=",  x)
+#go function
+test_vars()
+#checking meaning of variable out of function body
+print ("Out of function body x= ", x)'''
+
+TASK #13
+#function
+def test_vars():
+    #checkinf in fuction bode
+    print ("In function body variable x=",  x)
+x="Global Variable"
+#go function
+test_vars()
+#checking meaning of variable out of function body
+print ("Out of function body x= ", x)'''
+
+TASK #14
+#global variable
+x=100
+#description of the function
+def test_vars():
+    #give names to global variables
+    global x, y
+    #checking meaninng of x in body of function
+    print("x in function body is  " , x)
+    #global y
+    y=200
+    #checking meaning of y in function body
+    print("y in function body is  " , y)
+    #global x
+    x=300
+test_vars()
+print ("Out of function body x= ", x)
+print ("Out of function body y= ", y)'''
+
+
+TASK #14
+#incapculated functions
+#external function
+def sq_sum():
+    #inside function for reading number of
+    def get_n ():
+        #reading meaning of n
+        n=int(input("Input number N  in sum  "))
+        #the result og get_n is integer number
+        return n
+        #inputed function for calculation of sg.sum of int numbers
+    def find_sq_sum():
+            s=0
+            for i in range (1,n+1):
+                s=s+i**2
+            return s
+
+    n=get_n()
+    return find_sq_sum()
+z=sq_sum()
+print (z)
+
+
+TASK #14
+#the function for factorial and double factorsal calculation
+def factor (mode=True):
+    #inner function for calculation factorial of the number
+    def sf(n):
+        s=1
+        i=n
+        while i>1:
+            s*=i
+            i-=1
+        return s
+
+    def df(n):
+        s = 1
+        i = n
+        while i > 1:
+            s *= i
+            i -= 2
+        return s
+
+    if mode:
+        return sf
+    else:
+        return df
+print(factor()(5))
+print(factor(True)(5))
+print(factor(False)(5))
