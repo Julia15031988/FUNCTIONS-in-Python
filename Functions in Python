@@ -288,3 +288,43 @@ def factor (mode=True):
 print(factor()(5))
 print(factor(True)(5))
 print(factor(False)(5))
+
+
+
+
+#Function for differential
+def D(f):
+    #inner function for calculation approxiьte meaning
+    def df(x, dx=0.001):
+        #result of inner function
+        return (f(x+dx)-f(x))/dx
+    return df
+# 1st func for differentiation
+def f1(x):
+    return x**2
+#2nd function for differentiation
+def f2(x):
+    return 1/(1+x)
+#function for differential in some points
+#F-derivative
+#Nmax  -number of points(-1)
+#Xmax  -right border
+#dx - increase of argument
+#f  -analitical derivative
+def show (F, Nmax, Xmax, dx, f):
+    #points in which we calculate derivative
+    for i in range (Nmax+1):
+        x=i*Xmax/Nmax #argument meaning
+        #approximated and exaxt meaning of derivative
+        print (F(x), F(x,dx), f(x))
+
+#derivative for 1st function
+F1=D(f1)
+#derivative for 2nd function
+F2= D(f2)
+
+print ("derivative for function 1" )
+show(F1, 5, 1, 0.01, lambda x:2*x)
+
+print ("derivative for function 2" )
+show(F2, 5,1,0.01, lambda x:-1/(1+x)**2)
